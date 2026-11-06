@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Tomi ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #e9e5d9;
+  --paper: #f4f0e7;
+  --brown: #756457;
+  --dark: #3e4840;
+  --green: #849080;
+  --blue: #8799a2;
+  --muted: #aaa99b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 65px 22px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  animation: appear .8s ease;
+}
+
+.screen.active {
+  display: flex;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 25px;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(38px, 8vw, 65px);
+  line-height: 1.15;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: clamp(30px, 6vw, 43px);
+  margin-bottom: 25px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #73766d;
+}
+
+.decoration {
+  color: var(--brown);
+  font-size: 23px;
+  margin: 22px 0;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: .3s ease;
+}
+
+.next-btn {
+  margin-top: 38px;
+  background: var(--dark);
+  color: #f4f0e7;
+  padding: 15px 30px;
+  border-radius: 3px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.next-btn:hover {
+  background: var(--brown);
+  transform: translateY(-3px);
+}
+
+.card {
+  background: var(--paper);
+  padding: clamp(25px, 6vw, 55px);
+  text-align: left;
+  box-shadow: 0 12px 35px #55534412;
+  border: 1px solid #d9d5c9;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.card p {
+  margin-bottom: 17px;
+}
+
+.signature {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--brown);
+  font-size: 22px;
+  text-align: right;
+  margin-top: 35px;
+}
+
+.gift-label {
+  display: inline-block;
+  color: var(--brown);
+  border: 1px solid #c9c1b2;
+  padding: 8px 18px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.playlist {
+  display: inline-block;
+  text-decoration: none;
+  background: #849080;
+  color: white;
+  padding: 18px 30px;
+  margin-top: 28px;
+  letter-spacing: 1px;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.playlist:hover {
+  background: #687666;
+  transform: scale(1.04);
+}
+
+.song-icon {
+  font-size: 48px;
+  margin: 25px;
+}
+
+.likes {
+  text-align: left;
+  margin: 35px auto 0;
+  max-width: 500px;
+}
+
+.like-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 19px 0;
+  border-bottom: 1px solid #d0ccbf;
+}
+
+.like-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--green);
+}
+
+.like-item p {
+  font-size: 14px;
+}
+
+.last-card {
+  background: #e1e3da;
+  padding: 35px 25px;
+  border-radius: 3px;
+  margin-top: 30px;
+}
+
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.answer-btn {
+  padding: 14px 24px;
+  background: var(--dark);
+  color: white;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.answer-btn:hover {
+  background: var(--green);
+  transform: translateY(-3px);
+}
+
+.answer-btn.no {
+  background: #a18c81;
+}
+
+#response {
+  margin-top: 25px;
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  color: var(--brown);
+  min-height: 35px;
+}
+
+footer {
+  margin-top: 45px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+}
+
+@media(max-width: 480px) {
+  .screen { padding: 45px 20px; }
+  .card { padding: 25px 22px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRODUCCIÓN -->
+<section class="screen active" id="intro">
+  <div class="container">
+    <div class="eyebrow">Una pequeña sorpresa para ti</div>
+    <div class="decoration">✳</div>
+
+    <h1>Hola, Tomi.</h1>
+
+    <p>
+      Te preparé esto para poder hacerte la pregunta que tanto
+      esperabas... aunque debo advertirte que todavía tendrás
+      que ser un poquito paciente.
+    </p>
+
+    <p style="margin-top:15px">
+      Hay algunas cosas que quiero enseñarte antes.
+      Así que respira, ponte cómodo y sigue avanzando.
+    </p>
+
+    <button class="next-btn" onclick="goTo('gift1')">
+      Comenzar →
+    </button>
+
+    <footer>HECHO CON MUCHO CARIÑO ♡</footer>
+  </div>
+</section>
+
+
+<!-- PRIMER REGALO: CARTA -->
+<section class="screen" id="gift1">
+  <div class="container">
+    <span class="gift-label">Primer regalo</span>
+    <h2>Unas palabras para ti.</h2>
+
+    <div class="card">
+      <p>Querido Tomi:</p>
+
+      <p>
+        No sabía muy bien cómo empezar esto, pero supongo que
+        no existe una manera perfecta de expresar todo lo que
+        uno siente. Así que decidí hacerlo a mi manera.
+      </p>
+
+      <p>
+        Quiero que sepas que me hace muy feliz haberte conocido.
+        Entre tantas personas, tantas conversaciones y tantos
+        momentos que podrían haber pasado de cualquier otra
+        manera, coincidimos nosotros.
+      </p>
+
+      <p>
+        Y qué bonita casualidad, ¿no?
+      </p>
+
+      <p>
+        Me gusta pensar en todas esas pequeñas cosas que hemos
+        compartido, en las conversaciones que parecen no tener
+        final, en las tonterías que nos hacen reír y en esos
+        momentos en los que simplemente disfruto tenerte cerca,
+        incluso cuando la distancia no nos lo pone tan fácil.
+      </p>
+
+      <p>
+        No pretendo que todo sea perfecto. Sé que habrá días
+        buenos, días complicados y momentos en los que no
+        sepamos muy bien qué hacer. Pero si algo tengo claro
+        es que me gustaría seguir descubriendo cosas de ti,
+        seguir conociéndote y construir recuerdos que algún
+        día podamos mirar con una sonrisa.
+      </p>
+
+      <p>
+        No quiero prometerte un cuento de hadas. Prefiero
+        ofrecerte algo mucho más real: mis ganas de estar,
+        de escucharte, de cuidarte y de hacerte sentir querido.
+      </p>
+
+      <p>
+        Y aunque todavía tengo algunas cosas que decirte,
+        creo que ya he escrito suficiente por ahora.
+        No quiero que te acostumbres a recibir cartas tan largas...
+        bueno, quizá sí.
+      </p>
+
+      <p>
+        Gracias por ser tú, Tomi. Me alegra muchísimo que
+        formes parte de mis días.
+      </p>
+
+      <div class="signature">Con cariño, para ti. ♡</div>
+    </div>
+
+    <button class="next-btn" onclick="goTo('gift2')">
+      Descubrir el segundo regalo →
+    </button>
+  </div>
+</section>
+
+
+<!-- SEGUNDO REGALO: PLAYLIST -->
+<section class="screen" id="gift2">
+  <div class="container">
+    <span class="gift-label">Segundo regalo</span>
+
+    <div class="song-icon">♫</div>
+
+    <h2>Un poquito de música.</h2>
+
+    <p>
+      Dicen que hay cosas que son difíciles de explicar
+      con palabras, así que pensé que algunas canciones
+      podrían hacerlo por mí.
+    </p>
+
+    <p style="margin-top:15px">
+      Preparé una pequeña playlist para ti.
+      Espero que disfrutes cada canción tanto como yo
+      disfruté eligiéndolas.
+    </p>
+
+    <a class="playlist"
+       href="https://open.spotify.com/playlist/0jWXlsDuD25QjRzoCAurLO?si=OssMh-TTQ7GvJSpM6QWwKw&utm_source=copy-link&pt=410ab6e4098c67477f8a4c36a9427d3b&pi=OpaKltCgRs6fq"
+       target="_blank"
+       rel="noopener noreferrer">
+       Escuchar nuestra playlist ♡
+    </a>
+
+    <p style="margin-top:18px;font-size:12px">
+      Puedes escucharla y después regresar aquí.
+    </p>
+
+    <button class="next-btn" onclick="goTo('gift3')">
+      Pasar al último regalo →
+    </button>
+  </div>
+</section>
+
+
+<!-- POR ÚLTIMO... -->
+<section class="screen" id="gift3">
+  <div class="container">
+    <span class="gift-label">Por último...</span>
+
+    <h2>Cosas que me gustan de ti.</h2>
+
+    <p>
+      Podría hacer una lista interminable, pero creo
+      que estas son algunas de mis favoritas.
+    </p>
+
+    <div class="likes">
+
+      <div class="like-item">
+        <span class="like-number">01.</span>
+        <p>Tu manera de hacerme reír, incluso cuando no tengo muchas ganas de hacerlo.</p>
+      </div>
+
+      <div class="like-item">
+        <span class="like-number">02.</span>
+        <p>La forma en la que puedes convertir una conversación cualquiera en uno de mis momentos favoritos.</p>
+      </div>
+
+      <div class="like-item">
+        <span class="like-number">03.</span>
+        <p>Tu personalidad, tus ocurrencias y esa manera tan tuya de ser.</p>
+      </div>
+
+      <div class="like-item">
+        <span class="like-number">04.</span>
+        <p>Que puedo hablar contigo de cualquier tontería y aun así disfrutarlo muchísimo.</p>
+      </div>
+
+      <div class="like-item">
+        <span class="like-number">05.</span>
+        <p>Los pequeños detalles que tienes y que quizá ni siquiera notas, pero que yo sí.</p>
+      </div>
+
+      <div class="like-item">
+        <span class="like-number">06.</span>
+        <p>La tranquilidad y felicidad que me da saber que estás en mi vida.</p>
+      </div>
+
+      <div class="like-item">
+        <span class="like-number">07.</span>
+        <p>Simplemente tú. Porque no necesito una razón extraordinaria para que me gustes.</p>
+      </div>
+
+    </div>
+
+    <div class="decoration">✳</div>
+
+    <p style="font-family:'Playfair Display',serif;font-size:22px">
+      ¿Creíste que eso era todo?
+    </p>
+
+    <p style="margin-top:12px">
+      JAJAJA, broma. Aún hay más.
+    </p>
+
+    <button class="next-btn" onclick="goTo('final')">
+      Haz click aquí →
+    </button>
+  </div>
+</section>
+
+
+<!-- ... -->
+<section class="screen" id="final">
+  <div class="container">
+    <span class="gift-label">Una última cosa...</span>
+
+    <div class="decoration">♡</div>
+
+    <h2>Bueno, Tomi...</h2>
+
+    <div class="last-card">
+      <p>
+        Después de todas estas palabras, regalos y canciones,
+        creo que ya es momento de dejar de dar tantas vueltas.
+      </p>
+
+      <p style="margin-top:20px">
+        Hay algo que llevo queriendo preguntarte y,
+        aunque probablemente ya sepas qué es...
+      </p>
+
+      <h2 style="margin-top:30px;font-size:34px;color:#566454">
+        ¿Quieres ser mi novio?
+      </h2>
+
+    <div class="answers">
+      <button class="answer-btn" onclick="yesAnswer()">
+        Sí ♡
+      </button>
+
+      <button class="answer-btn" onclick="yesAnswer()">
+        Sí
+      </button>
+
+      <button class="answer-btn" onclick="yesAnswer()">
+        Obviamente
+      </button>
+
+      <button class="answer-btn no" onclick="noAnswer()">
+        No, te odio
+      </button>
+    </div>
+
+    <div id="response"></div>
+
+    <footer>CON TODO MI CARIÑO ♡</footer>
+  </div>
+</section>
+
+
+<script>
+function goTo(id) {
+  const screens = document.querySelectorAll('.screen');
+
+  screens.forEach(screen => {
+    screen.classList.remove('active');
+  });
+
+  const nextScreen = document.getElementById(id);
+  nextScreen.classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+function yesAnswer() {
+  document.getElementById('response').innerHTML =
+    '¡¡¡SABÍA QUE DIRÍAS QUE SÍ!!! ♡';
+
+  document.getElementById('response').style.color = '#687966';
+}
+
+function noAnswer() {
+  document.getElementById('response').innerHTML =
+    'JAJAJAJA, esa opción no estaba disponible. Inténtalo otra vez ♡';
+}
+</script>
+
+</body>
+</html>
